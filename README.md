@@ -2,7 +2,7 @@
 
 ## Supplementary Materials
 
-This repository contains the source code and supplementary materials associated with the paper **"Network Flow Integration to Improve Generalization of Machine Learning-Based IDS"**, submitted to SBSeg 2026. The processed datasets used in the experiments are publicly available in a permanent Zenodo record linked below.
+This repository contains the source code and supplementary materials associated with the paper **"Network Flow Integration to Improve Generalization of Machine Learning-Based IDS"**, submitted to SBSeg 2026. The processed datasets used in the experiments are publicly available in a permanent Zenodo record.
 
 ## Abstract
 
@@ -12,21 +12,15 @@ The growth of cyber threats and the evolution of attacks highlight the need for 
 
 The artifacts support the experimental evaluation of a controlled network-flow integration method for improving the generalization of machine learning-based Intrusion Detection Systems (IDS) across distinct data domains.
 
-The experiments use standardized versions of the UNSW-NB15, CIC-IDS2017, and CIC-IDS2018 datasets. Network flows were extracted from the original PCAP files using NFStream and organized in a common feature space. During the experiments, labeled flows selected from the target domain are incorporated into the source-domain training data. The corresponding selected flows are removed from the target-domain test data, and an equivalent number of flows is removed from the source-domain training data to preserve the dataset size.
+The experiments use standardized versions of the [UNSW-NB15](https://research.unsw.edu.au/projects/unsw-nb15-dataset), [CIC-IDS2017](https://www.unb.ca/cic/datasets/ids-2017.html), and [CIC-IDS2018](https://www.unb.ca/cic/datasets/ids-2018.html) datasets. Network flows were extracted from the original PCAP files using [NFStream](https://www.nfstream.org/) and organized in a common feature space. During the experiments, labeled flows selected from the target domain are incorporated into the source-domain training data. The corresponding selected flows are removed from the target-domain test data, and an equivalent number of flows is removed from the source-domain training data to preserve the dataset size.
 
 The repository provides nine Jupyter notebooks corresponding to the nine experiments reported in the paper. They evaluate three flow-integration strategies, both independently and in combination with feature-level interventions:
 
 - benign flow integration;
 - malicious (D)DoS flow integration;
 - mixed integration of benign and malicious (D)DoS flows;
-- flow integration combined with Principal Component Analysis (PCA); and
+- flow integration mixed with Principal Component Analysis (PCA); and
 - flow integration combined with Chi-Square feature selection.
-
-## Badge Considered
-
-At this stage, the artifact is prepared for evaluation for the following SBSeg artifact badge:
-
-- **Available Artifacts (SeloD)**
 
 ## Available Artifacts
 
