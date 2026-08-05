@@ -28,7 +28,7 @@ The materials associated with the paper are distributed as follows:
 
 - **Source code:** the nine Jupyter notebooks in the [`notebooks/`](notebooks/) directory implement the experiments reported in the paper.
 - **Processed datasets:** the GenIDS datasets used by the notebooks are publicly available on Zenodo: [GenIDS datasets - Zenodo record 21435638](https://zenodo.org/records/21435638).
-- **Feature documentation:** [`tables/features.pdf`](tables/features.pdf) describes the features extracted with NFStream from the original PCAP files.
+- **Feature documentation:** [`features.pdf`](features.pdf) describes the features extracted with NFStream from the original PCAP files.
 
 ## Repository Structure
 
