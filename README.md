@@ -44,8 +44,7 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_7.ipynb
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
-├── tables/
-│   └── features.pdf
+├── features.pdf
 └── README.md
 ```
 
