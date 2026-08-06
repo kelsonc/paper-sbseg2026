@@ -44,6 +44,8 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_7.ipynb
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
+├── requirements.txt
+├── setup.sh
 ├── features.pdf
 └── README.md
 ```
@@ -54,7 +56,7 @@ The processed datasets are stored separately on Zenodo and therefore are not inc
 
 The experiments use the following standardized datasets:
 
-- **GenIDS-UNSW15**, derived from UNSW-NB15;
+- **GenIDS-NB15**, derived from UNSW-NB15;
 - **GenIDS-CIC17**, derived from CIC-IDS2017; and
 - **GenIDS-CIC18**, derived from CIC-IDS2018.
 
@@ -67,6 +69,114 @@ The original public datasets are not redistributed in this GitHub repository. Th
 The NFStream features are documented in [Features Extracted with NFStream from the PCAP Files of the Datasets](tables/features.pdf). They include flow identification and traffic-volume information, packet-derived statistical measurements, and application-related features.
 
 > **Note:** The dataset paths in the notebooks must point to the local directory where the files downloaded from Zenodo are stored. Detailed configuration and execution instructions will be documented as part of the functional artifact documentation.
+
+## Basic Information
+
+The experiments reported in the paper were originally executed in the following environment:
+
+| Component | Configuration |
+|---|---|
+| Operating system | Ubuntu 20.04.6 LTS (64-bit), Linux kernel 5.4.0-216-generic |
+| Processor | Intel(R) Xeon(R) E-2224G CPU @ 3.50 GHz |
+| Memory | 32 GB DDR4 RAM |
+| Storage | 2 TB (1 TB SATA SSD + 1 TB HDD) |
+| Python | 3.8.10 |
+| Development environment | Jupyter Notebook / JupyterLab |
+
+This configuration describes the environment used by the authors and should not be interpreted as a strict minimum hardware requirement. The notebooks may run on systems with fewer computational resources, although execution time and memory pressure may increase depending on the dataset and experiment.
+
+## Dependencies
+
+The notebooks directly depend on NumPy, Pandas, Matplotlib, Scikit-learn, and XGBoost. JupyterLab and IPython kernel support are included to provide a consistent notebook execution environment. The reference environment is defined in [`requirements.txt`](requirements.txt):
+
+```text
+numpy==1.24.4
+pandas==2.0.3
+matplotlib==3.7.5
+scikit-learn==1.3.2
+xgboost==2.0.3
+jupyterlab==4.2.5
+ipykernel==6.29.5
+nbconvert==7.16.4
+```
+
+These versions were selected to provide a fixed software environment compatible with Python 3.8. The original data-generation pipeline also used NFStream, but NFStream is not required to execute the nine notebooks because the processed flow datasets are provided separately on Zenodo.
+
+## Security Concerns
+
+The artifact does not require privileged execution, external credentials, network packet capture, or access to security-sensitive system resources. The notebooks operate on previously processed CSV files downloaded from the Zenodo record. As a general precaution, the artifacts can be executed within a Python virtual environment or an isolated virtual machine.
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kelsonc/paper-sbseg2026.git
+cd paper-sbseg2026
+```
+
+### 2. Create the Python environment
+
+On Linux, the provided setup script creates a virtual environment in `.venv`, installs the fixed dependencies, and registers a Jupyter kernel named `Python (SBSeg 2026)`:
+
+```bash
+chmod +x setup.sh
+./setup.sh
+source .venv/bin/activate
+```
+
+Alternatively, the environment can be created manually:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+### 3. Download and extract the datasets
+
+Download the following archives from [Zenodo record 21435638](https://zenodo.org/records/21435638):
+
+- `GenIDS-CIC17.zip`
+- `GenIDS-CIC18.zip`
+- `GenIDS-NB15.zip`
+
+Extract the archives to a local directory. The dataset files are intentionally maintained outside the GitHub repository because of their size.
+
+### 4. Configure the dataset paths
+
+Before running a notebook, open its **Experiment Configuration** (or **Global Configuration**) cell and set `DATA_DIR` and, when necessary, the dataset file variables to the locations of the CSV files extracted from Zenodo. For example:
+
+```python
+from pathlib import Path
+
+DATA_DIR = Path("/path/to/extracted/datasets")
+CIC17_PATH = DATA_DIR / "GenIDS-CIC17.csv"
+CIC18_PATH = DATA_DIR / "GenIDS-CIC18.csv"
+```
+
+The exact dataset variables depend on the experiment. Only the configuration cell needs to be changed; the remaining notebook code does not require path modifications.
+
+### 5. Start JupyterLab
+
+```bash
+jupyter lab
+```
+
+Select the `Python (SBSeg 2026)` kernel and execute the desired notebook from the first cell to the last cell.
+
+## Minimum Functional Test
+
+After installing the dependencies and configuring the dataset paths, **Notebook 4 (Experiment 4)** can be used as a functional test because it exercises dataset loading, preprocessing, benign-flow integration, PCA, XGBoost training, and metric computation using the 40% integration configuration reported in the paper.
+
+From JupyterLab, open [`notebooks/notebook_4.ipynb`](notebooks/notebook_4.ipynb), select `Python (SBSeg 2026)`, and choose **Run All Cells**. A successful execution must:
+
+1. load the GenIDS-CIC17 and GenIDS-CIC18 CSV files;
+2. integrate benign target-domain flows into the source-domain training data;
+3. reduce the feature representation to 25 PCA components;
+4. train the XGBoost classifier;
+5. report the intraset and interset evaluation metrics; and
+6. generate the experiment results without Python exceptions.
 
 ## Notebooks and Experiments
 
