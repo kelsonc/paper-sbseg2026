@@ -58,6 +58,7 @@ The materials associated with the paper are distributed as follows:
 │   └── notebook_9.ipynb
 ├── results/
 │   └── README.md
+├── LICENSE
 ├── README.md
 ├── features.pdf
 ├── requirements.txt
