@@ -120,8 +120,8 @@ cd paper-sbseg2026
 On Linux, the provided setup script creates a virtual environment in `.venv`, installs the fixed dependencies, and registers a Jupyter kernel named `Python (SBSeg 2026)`:
 
 ```bash
-chmod +x setup.sh
-./setup.sh
+chmod +x setup_env.sh
+./setup_env.sh
 source .venv/bin/activate
 ```
 
