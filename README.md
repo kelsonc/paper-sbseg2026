@@ -43,6 +43,8 @@ The materials associated with the paper are distributed as follows:
 
 ```text
 .
+├── docs/
+│   ├── CODE_DOCUMENTATION.md
 ├── notebooks/
 │   ├── notebook_1.ipynb
 │   ├── notebook_2.ipynb
@@ -53,12 +55,10 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_7.ipynb
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
-├── docs/
-│   ├── CODE_DOCUMENTATION.md
+├── README.md
 ├── features.pdf
 ├── requirements.txt
-├── setup_env.sh
-└── README.md
+└── setup_env.sh
 ```
 
 The processed datasets are stored separately on Zenodo and therefore are not included directly in the GitHub repository.
