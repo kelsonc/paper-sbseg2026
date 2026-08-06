@@ -45,7 +45,7 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
 ├── requirements.txt
-├── setup.sh
+├── setup_env.sh
 ├── features.pdf
 └── README.md
 ```
