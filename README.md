@@ -254,3 +254,9 @@ The relationship between the main findings of the paper and the artifacts is sum
 | Mixed integration provides the most balanced behavior, particularly when combined with feature selection. | 3, 6, 9 | 3, 6, 9 | Tables 5, 8, 11, 12; Figures 5 and 7(c) |
 
 This mapping allows the artifacts associated with each of the main experimental conclusions to be directly identified, without the need to infer this relationship solely from the notebook filenames.
+
+## License
+
+The source code, scripts, and Jupyter notebooks in this repository are distributed under the [MIT License](LICENSE).
+
+The processed datasets available through [Zenodo record 21435638](https://zenodo.org/records/21435638) are distributed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license.
