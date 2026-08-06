@@ -22,13 +22,22 @@ The repository provides nine Jupyter notebooks corresponding to the nine experim
 - flow integration mixed with Principal Component Analysis (PCA); and
 - flow integration combined with Chi-Square feature selection.
 
+## Badges Considered
+
+The artifact is prepared for evaluation for the following SBSeg artifact badges:
+
+- **Available Artifacts (SeloD)**
+- **Functional Artifacts (SeloF)**
+- **Sustainable Artifacts (SeloS)**
+- **Reproducible Experiments (SeloR)**
+
 ## Available Artifacts
 
 The materials associated with the paper are distributed as follows:
 
 - **Source code:** the nine Jupyter notebooks in the [`notebooks/`](notebooks/) directory implement the experiments reported in the paper.
 - **Processed datasets:** the GenIDS datasets used by the notebooks are publicly available on Zenodo: [GenIDS datasets - Zenodo record 21435638](https://zenodo.org/records/21435638).
-- **Feature documentation:** [`features.pdf`](features.pdf) describes the features extracted with NFStream from the original PCAP files.
+- **Feature documentation:** [`docs/features.pdf`](docs/features.pdf) describes the features extracted with NFStream from the original PCAP files.
 
 ## Repository Structure
 
@@ -44,9 +53,11 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_7.ipynb
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
+├── docs/
+│   ├── CODE_DOCUMENTATION.md
+│   ├── features.pdf
 ├── requirements.txt
 ├── setup_env.sh
-├── features.pdf
 └── README.md
 ```
 
@@ -66,7 +77,7 @@ The processed datasets used by the experimental notebooks are available from the
 
 The original public datasets are not redistributed in this GitHub repository. The GenIDS versions were generated from the original network traffic captures using NFStream, producing a common set of flow features for cross-dataset experiments. The datasets were subsequently preprocessed and labeled according to the methodology described in the paper.
 
-The NFStream features are documented in [Features Extracted with NFStream from the PCAP Files of the Datasets](tables/features.pdf). They include flow identification and traffic-volume information, packet-derived statistical measurements, and application-related features.
+The NFStream features are documented in [Features Extracted with NFStream from the PCAP Files of the Datasets](docs/features.pdf). They include flow identification and traffic-volume information, packet-derived statistical measurements, and application-related features.
 
 > **Note:** The dataset paths in the notebooks must point to the local directory where the files downloaded from Zenodo are stored. Detailed configuration and execution instructions will be documented as part of the functional artifact documentation.
 
@@ -207,3 +218,19 @@ Chi-Square feature selection is combined with the corresponding flow-integration
 - [Notebook 9](notebooks/notebook_9.ipynb) - **Experiment 9:** Chi-Square + mixed flow integration.
 
 Together, these artifacts provide the code, standardized data references, and supplementary feature documentation associated with the experimental evaluation presented in the paper.
+
+## Code Organization and Traceability
+
+The notebooks use a consistent organization based on configuration, dataset loading and preprocessing, flow integration, feature intervention when applicable, model training, evaluation, and result reporting. Helper functions are documented with docstrings, while Markdown cells describe the purpose of each experimental stage.
+
+Detailed descriptions of the files, main function groups, and maintenance conventions are provided in [`docs/CODE_DOCUMENTATION.md`](docs/CODE_DOCUMENTATION.md).
+
+The relationship between the main findings of the paper and the artifacts is summarized below:
+
+| Main finding | Experiments | Notebooks | Paper evidence |
+|---|---|---|---|
+| Benign-flow integration can reduce class separability and compromise attack detection. | 1, 4, 7 | 1, 4, 7 | Tables 3, 6, 9; Figures 3 and 7(a) |
+| Malicious-flow integration increases sensitivity to (D)DoS but can reduce balance across the remaining classes. | 2, 5, 8 | 2, 5, 8 | Tables 4, 7, 10; Figures 4 and 7(b) |
+| Mixed integration provides the most balanced behavior, particularly when combined with feature selection. | 3, 6, 9 | 3, 6, 9 | Tables 5, 8, 11, 12; Figures 5 and 7(c) |
+
+This mapping makes it possible to identify the artifacts associated with each of the article's main experimental conclusions, establishing a clear correspondence between the experiments, the notebooks, and the presented results.
