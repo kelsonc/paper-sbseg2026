@@ -43,6 +43,9 @@ The materials associated with the paper are distributed as follows:
 
 ```text
 .
+├── docs/
+│   ├── CODE_DOCUMENTATION.md
+│   └── REPRODUCIBILITY.md
 ├── notebooks/
 │   ├── notebook_1.ipynb
 │   ├── notebook_2.ipynb
@@ -53,16 +56,13 @@ The materials associated with the paper are distributed as follows:
 │   ├── notebook_7.ipynb
 │   ├── notebook_8.ipynb
 │   └── notebook_9.ipynb
-├── docs/
-│   ├── CODE_DOCUMENTATION.md
-│   └── REPRODUCIBILITY.md
 ├── results/
 │   └── README.md
-├── requirements.txt
-├── setup_env.sh
-├── run_experiments.sh
+├── README.md
 ├── features.pdf
-└── README.md
+├── requirements.txt
+├── run_experiments.sh
+└── setup_env.sh
 ```
 
 The processed datasets are stored separately on Zenodo and therefore are not included directly in the GitHub repository.
@@ -102,7 +102,7 @@ This configuration describes the environment used by the authors and should not 
 
 ## Dependencies
 
-The notebooks directly depend on NumPy, pandas, Matplotlib, scikit-learn, and XGBoost. JupyterLab and IPython kernel support are included to provide a consistent notebook execution environment. The reference environment is defined in [`requirements.txt`](requirements.txt):
+The notebooks directly depend on NumPy, Pandas, Matplotlib, Scikit-learn, and XGBoost. JupyterLab and IPython kernel support are included to provide a consistent notebook execution environment. The reference environment is defined in [`requirements.txt`](requirements.txt):
 
 ```text
 numpy==1.24.4
@@ -119,7 +119,7 @@ These versions were selected to provide a fixed software environment compatible 
 
 ## Security Concerns
 
-The artifact does not require privileged execution, external credentials, network packet capture, or access to security-sensitive system resources. The notebooks operate on previously processed CSV files downloaded from the Zenodo record. As a general precaution, reviewers may execute the artifact inside a Python virtual environment or an isolated virtual machine.
+The artifact does not require privileged execution, external credentials, network packet capture, or access to security-sensitive system resources. The notebooks operate on previously processed CSV files downloaded from the Zenodo record. As a general precaution, the artifacts can be executed in a Python virtual environment or an isolated virtual machine.
 
 ## Installation
 
@@ -253,4 +253,4 @@ The relationship between the main findings of the paper and the artifacts is sum
 | Malicious-flow integration increases sensitivity to (D)DoS but can reduce balance across the remaining classes. | 2, 5, 8 | 2, 5, 8 | Tables 4, 7, 10; Figures 4 and 7(b) |
 | Mixed integration provides the most balanced behavior, particularly when combined with feature selection. | 3, 6, 9 | 3, 6, 9 | Tables 5, 8, 11, 12; Figures 5 and 7(c) |
 
-This mapping is intended to let reviewers identify which artifact supports each principal experimental conclusion without having to infer the relationship from notebook filenames alone.
+This mapping allows the artifacts associated with each of the main experimental conclusions to be directly identified, without the need to infer this relationship solely from the notebook filenames.
