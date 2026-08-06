@@ -37,7 +37,7 @@ The materials associated with the paper are distributed as follows:
 
 - **Source code:** the nine Jupyter notebooks in the [`notebooks/`](notebooks/) directory implement the experiments reported in the paper.
 - **Processed datasets:** the GenIDS datasets used by the notebooks are publicly available on Zenodo: [GenIDS datasets - Zenodo record 21435638](https://zenodo.org/records/21435638).
-- **Feature documentation:** [`docs/features.pdf`](docs/features.pdf) describes the features extracted with NFStream from the original PCAP files.
+- **Feature documentation:** [`features.pdf`](features.pdf) describes the features extracted with NFStream from the original PCAP files.
 
 ## Repository Structure
 
@@ -55,7 +55,7 @@ The materials associated with the paper are distributed as follows:
 │   └── notebook_9.ipynb
 ├── docs/
 │   ├── CODE_DOCUMENTATION.md
-│   ├── features.pdf
+├── features.pdf
 ├── requirements.txt
 ├── setup_env.sh
 └── README.md
@@ -77,7 +77,7 @@ The processed datasets used by the experimental notebooks are available from the
 
 The original public datasets are not redistributed in this GitHub repository. The GenIDS versions were generated from the original network traffic captures using NFStream, producing a common set of flow features for cross-dataset experiments. The datasets were subsequently preprocessed and labeled according to the methodology described in the paper.
 
-The NFStream features are documented in [Features Extracted with NFStream from the PCAP Files of the Datasets](docs/features.pdf). They include flow identification and traffic-volume information, packet-derived statistical measurements, and application-related features.
+The NFStream features are documented in [Features Extracted with NFStream from the PCAP Files of the Datasets](features.pdf). They include flow identification and traffic-volume information, packet-derived statistical measurements, and application-related features.
 
 > **Note:** The dataset paths in the notebooks must point to the local directory where the files downloaded from Zenodo are stored. Detailed configuration and execution instructions will be documented as part of the functional artifact documentation.
 
